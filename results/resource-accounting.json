@@ -1,0 +1,97 @@
+{
+  "scope": "known individually recorded scientific runs, not an exact total of all interactive research",
+  "experiments": [
+    {
+      "experiment": "frontier census n=2, checker stride=127",
+      "source": "results/pilot-stride127/exhaustive-2.json",
+      "cpu_seconds": 0.05402619399999997,
+      "counted_transitions": 6864,
+      "checker_steps": 337
+    },
+    {
+      "experiment": "frontier census n=3, checker stride=127",
+      "source": "results/pilot-stride127/exhaustive-3.json",
+      "cpu_seconds": 5.815718932999999,
+      "counted_transitions": 609120,
+      "checker_steps": 34678
+    },
+    {
+      "experiment": "original logically redundant predicate pilot",
+      "source": "results/redundant-predicate-pilot.json",
+      "cpu_seconds": 0.017070183000000017,
+      "counted_transitions": 4968,
+      "checker_steps": 0
+    },
+    {
+      "experiment": "earlier complete checker audit with shorter Java observations",
+      "cpu_seconds": 29.743658380999996,
+      "counted_transitions": 621057,
+      "checker_steps": 4458629,
+      "checker_step_scope": "exhaustive plus retained capacity record; earlier unit steps were not separately recorded",
+      "aggregate_rss_upper_kib": 190296,
+      "stages": [
+        {
+          "stage": "unit-tests",
+          "cpu_seconds": 0.009020631000000057,
+          "wall_seconds": 0.00903399999992871
+        },
+        {
+          "stage": "exhaustive-2",
+          "cpu_seconds": 0.3070562720000001,
+          "wall_seconds": 0.3070754510001734,
+          "peak_rss_kib": 94892
+        },
+        {
+          "stage": "exhaustive-3",
+          "cpu_seconds": 28.292902918,
+          "wall_seconds": 28.301967628000057,
+          "peak_rss_kib": 95020
+        },
+        {
+          "stage": "java-compile",
+          "cpu_seconds": 0.9512940000000001,
+          "wall_seconds": 0.47368724900002235,
+          "child_peak_rss_kib": 95020
+        },
+        {
+          "stage": "java-observe",
+          "cpu_seconds": 0.15968499999999988,
+          "wall_seconds": 0.09733432999996694,
+          "child_peak_rss_kib": 95148
+        }
+      ]
+    },
+    {
+      "experiment": "canonical complete campaign",
+      "source": "results/campaign/measurements.json",
+      "cpu_seconds": 29.198003055999997,
+      "counted_transitions": 621057,
+      "checker_steps": 4459040
+    },
+    {
+      "experiment": "clean extraction of standalone repository, complete replay",
+      "source": "results/replay-measurements.json",
+      "cpu_seconds": 29.021006958000005,
+      "counted_transitions": 621057,
+      "checker_steps": 4459040
+    }
+  ],
+  "known_cpu_seconds": 93.849483705,
+  "known_counted_transitions": 2484123,
+  "known_checker_steps": 13411724,
+  "ceilings": {
+    "cpu_seconds": 25200,
+    "transitions": 4000000,
+    "checker_steps": 16000000,
+    "peak_rss_bytes": 3221225472,
+    "workers": 4
+  },
+  "unmetered_work": "Early interactive smoke and directed test executions were not all individually recorded. Some earlier unit steps are not in this sum. These sums must not be presented as exact whole-project totals.",
+  "downloads": "No scientific input/dependency download into the experiment. Browser source transfer bytes were not recorded.",
+  "clean_extraction_replay": "MATCH; same environment; seven scientific JSON comparisons and five byte-identical deterministic data files",
+  "remaining_known_budget": {
+    "cpu_seconds": 25106.150516295,
+    "transitions": 1515877,
+    "checker_steps": 2588276
+  }
+}
