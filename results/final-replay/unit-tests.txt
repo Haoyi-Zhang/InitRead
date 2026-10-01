@@ -17,6 +17,6 @@ test_phase_erasure_loses_bad_trace (test_witness.WitnessTests.test_phase_erasure
 test_shortlex_matches_full_path_oracle (test_witness.WitnessTests.test_shortlex_matches_full_path_oracle) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 0.005s
+Ran 17 tests in 0.004s
 
 OK

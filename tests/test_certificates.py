@@ -89,7 +89,16 @@ class CertificateTests(unittest.TestCase):
                      (((1, 0, -1),), [True]), (((0, 0, -1),), [0])]:
             with self.assertRaises(ValueError):
                 Checker(h, r)
-        c = Checker(((1, 0, -1),), [0])
+        heap = ((1, 0, -1),)
+        for roots in ([0, False], [False, 0], [0, 0.0], [0.0, 0],
+                      (0, False), (False, 0), (0, 0.0), (0.0, 0)):
+            with self.subTest(roots=roots):
+                with self.assertRaises(ValueError):
+                    Checker(heap, roots)
+        for roots in ([0, 0], (0, 0)):
+            with self.subTest(duplicate_roots=roots):
+                self.assertEqual(Checker(heap, roots).roots, frozenset({0}))
+        c = Checker(heap, [0])
         for event in [(0, 9, 0, -1), (0, 1, 2, -1), (True, 1, 0, -1), None]:
             self.assertEqual(c.inspect(event, {}), "INVALID_CERT")
 
@@ -117,6 +126,7 @@ class CertificateTests(unittest.TestCase):
                          ([(1, 0, -1, 0)], []), ([(1, 0, -1)]*129, [])]:
             with self.assertRaises(ValueError):
                 Checker(h, roots)
+        self.assertEqual(Checker([(1, 0, -1)], [0]*128).roots, frozenset({0}))
 
     def test_bound_128(self):
         heap = tuple((1, 1, (i + 1) % 128) for i in range(128))

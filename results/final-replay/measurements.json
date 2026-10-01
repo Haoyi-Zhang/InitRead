@@ -1,38 +1,38 @@
 {
-  "cpu_seconds": 29.021006958000005,
-  "wall_seconds": 28.421682802999385,
-  "parent_peak_rss_kib": 95272,
-  "child_peak_rss_kib": 95144,
-  "aggregate_rss_upper_kib": 190416,
+  "cpu_seconds": 29.116190510000003,
+  "wall_seconds": 28.607919756,
+  "parent_peak_rss_kib": 95924,
+  "child_peak_rss_kib": 95924,
+  "aggregate_rss_upper_kib": 191848,
   "stages": [
     {
       "stage": "unit-tests",
-      "cpu_seconds": 0.009444409999999959,
-      "wall_seconds": 0.009445448999940709
+      "cpu_seconds": 0.010177373999999961,
+      "wall_seconds": 0.01017915800002811
     },
     {
       "stage": "exhaustive-2",
-      "cpu_seconds": 0.26359495899999996,
-      "wall_seconds": 0.26391752699964854,
-      "peak_rss_kib": 94888
+      "cpu_seconds": 0.2509961559999999,
+      "wall_seconds": 0.2510098770000013,
+      "peak_rss_kib": 95796
     },
     {
       "stage": "exhaustive-3",
-      "cpu_seconds": 27.457567258,
-      "wall_seconds": 27.479759110000487,
-      "peak_rss_kib": 95016
+      "cpu_seconds": 27.765141435,
+      "wall_seconds": 27.772743114000036,
+      "peak_rss_kib": 95924
     },
     {
       "stage": "java-compile",
-      "cpu_seconds": 1.0455510000000001,
-      "wall_seconds": 0.519357895000212,
-      "child_peak_rss_kib": 95016
+      "cpu_seconds": 0.8965920000000001,
+      "wall_seconds": 0.4422675179999942,
+      "child_peak_rss_kib": 95924
     },
     {
       "stage": "java-observe",
-      "cpu_seconds": 0.22109400000000037,
-      "wall_seconds": 0.12702326899943728,
-      "child_peak_rss_kib": 95144
+      "cpu_seconds": 0.17024100000000003,
+      "wall_seconds": 0.10997409800006608,
+      "child_peak_rss_kib": 95924
     }
   ],
   "workers": 1,

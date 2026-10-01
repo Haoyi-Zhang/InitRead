@@ -14,9 +14,11 @@ class Checker:
             raise ValueError("bounded three-field records required")
         if type(roots) not in (tuple, list, set, frozenset) or len(roots) > 128:
             raise ValueError("bounded root collection required")
+        # Validate every supplied root before set conversion.  Python considers
+        # 0 == False == 0.0, so deduplicating first could hide an invalid value.
         self.heap = tuple(tuple(row) for row in heap)
+        self._admit(self.heap, roots)
         self.roots = frozenset(roots)
-        self._admit(self.heap, self.roots)
         self.cache = {}
         for obj in self._closure(self.heap, self.roots):
             result, reads = self._policy(self.heap, obj)
