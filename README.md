@@ -14,6 +14,32 @@ Linux, Python 3.9 or newer, and a local JDK providing java and javac. All Python
 
 All output directories below must be absent or empty. All Java children are sequential; one active processor, SerialGC, a 256 MiB heap cap, and javac -proc:none are recorded by the runners. Each command records actual environment and code/input bindings. Original historical versions and architecture that were never recorded remain unknown.
 
+### Portable Python-only execution
+
+The bounded Python computation and integer references can also run without a
+JDK or POSIX `resource`. This is an explicitly partial execution, not a new Java
+stream-decoding, receiver-differential, or performance experiment:
+
+```sh
+python -B -m unittest discover -s portability_tests -v
+python -B reproduce_portable.py --out /absolute/fresh/python-scope
+```
+
+This runs the complete two-/three-object enumeration, witness/capacity controls,
+all 32 existing Python tests, receiver packet generation, the independent
+5,248-packet certificate reference, and reinterpretation of the 11 archived
+passive observations. It compares six inherited semantic JSON and four byte
+files, plus both campaigns' generated input files. It never supplies synthetic
+Java observations or serialized sizes. Wall time and Python CPU are measured;
+unsupported peak RSS is JSON `null`, not zero or a Linux-equivalent estimate.
+
+In the standalone InitRead code repository, the contents of this `artifact/`
+directory are the repository root. Its `.github/workflows/scientific-checks.yml` proposes a manual
+Ubuntu/Python 3.12/Temurin 21 run of all four **full** commands, including 42
+receiver and 28 specialization timing forks. Its fresh outputs and logs live
+under `$RUNNER_TEMP`, are uploaded even on failure, and do not replace or pool
+the historical measurements. This configuration is not itself a completed run.
+
 ## Commands
 
 Preserved finite model, including 17 test methods and 7 scientific JSON / 5 deterministic file comparisons:
