@@ -46,6 +46,7 @@ jobs:
           import os
           from pathlib import Path
           import platform
+          import re
           import signal
           import shutil
           import subprocess
@@ -87,8 +88,8 @@ jobs:
                                 text=True, capture_output=True, timeout=15, check=True)
           javac = subprocess.run(['javac','-version'], env=env,
                                  text=True, capture_output=True, timeout=15, check=True)
-          properties = dict(line.strip().split(' = ',1) for line in java.stderr.splitlines()
-                            if ' = ' in line)
+          properties = {key.strip(): value.strip() for line in java.stderr.splitlines()
+                        for key, separator, value in [line.partition(' = ')] if separator}
           write_json(root/'runtime.json', {
               'platform':platform.platform(), 'python':sys.version,
               'java_version_output':java.stderr, 'javac_version_output':javac.stdout+javac.stderr,
@@ -96,7 +97,9 @@ jobs:
               'experiment_network_used':False, 'external_serialized_inputs':False})
           if sys.version_info[:2] != (3,12) or properties.get('java.specification.version') != '21':
               raise RuntimeError('Expected Python 3.12 and Java 21')
-          if (javac.stdout+javac.stderr).strip().split()[1].split('.')[0] != '21':
+          compiler_version = re.search(r'^javac\s+(\d+)(?:\.|\s|$)',
+                                       javac.stdout+javac.stderr, re.MULTILINE)
+          if not compiler_version or compiler_version.group(1) != '21':
               raise RuntimeError('Expected javac 21')
 
           # The four complete reviewed commands: no --skip-benchmark, no external targets.
