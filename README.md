@@ -122,3 +122,13 @@ configuration, protected checker state and the documented input/publication
 boundary. The passive bridge deliberately returns unknown when those event
 premises cannot be recovered. See the corresponding proof and experiment
 contracts for the exact conditions of each path.
+
+## Manuscript diagrams
+
+The model and protocol schematics are drawn directly in Python as vector PDFs
+with embedded STIX fonts. They encode the stated relationships, not measured
+performance. To regenerate them with Python 3.9+ and Matplotlib:
+
+```sh
+python -B figures/draw_schematics.py --output figures
+```
