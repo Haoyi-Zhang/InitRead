@@ -132,11 +132,11 @@
         "tests/test_witness.py"
       ]
     },
-    "evidence": "results/final-replay/root-validation.json",
+    "evidence": "results/retained-replay/root-validation.json",
     "outcome": "all eight list/tuple mixed-type permutations reject; duplicate integer roots and a 128-element duplicate container accept; a 129-element container rejects"
   },
   "finite_domain_replay": {
-    "evidence": "results/final-replay/replay-verification.json",
+    "evidence": "results/retained-replay/replay-verification.json",
     "scientific_json": "7/7 MATCH",
     "deterministic_files": "5/5 MATCH",
     "canonical_files_modified": false

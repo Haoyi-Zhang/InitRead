@@ -31,11 +31,11 @@
     },
     {
       "experiment": "current recorded-environment complete replay",
-      "source": "results/final-replay/measurements.json",
+      "source": "results/retained-replay/measurements.json",
       "cpu_seconds": 29.116190510000003,
       "counted_transitions": 621057,
       "checker_steps": 4459040,
-      "comparison": "results/final-replay/replay-verification.json: 7/7 scientific JSON MATCH; 5/5 deterministic files MATCH",
+      "comparison": "results/retained-replay/replay-verification.json: 7/7 scientific JSON MATCH; 5/5 deterministic files MATCH",
       "workload_breadth": "repeated verification, not additional scientific breadth"
     },
     {
@@ -136,7 +136,7 @@
   "unmetered_work": "Inherited unmetered work remains. Current four-case smoke work, some interactive checks, source preparation, paper builds, literature transfer, and an interrupted clean receiver attempt do not have complete aggregate meters. The clean bridge child CPU is in clean-check/commands.json but not added here to avoid claiming identical meter semantics. Small wrapper overhead may overlap run meters; no exact whole-session total is asserted. The latest interrupted specialization attempt lacks a complete parent CPU meter; completed child timing/step outputs are counted only as lower bounds. An injected Python site startup hook emitted unrelated spreadsheet warmup errors before entry; it is not imported by experiment code and raw stderr is retained. Latest bridge CPU and proof/test-generation work are not merged into old counters with different semantics.",
   "downloads": "No scientific input or dependency was downloaded by either experiment runner. Browser literature-transfer bytes are outside this accounting and were not measured.",
   "original_environment": "The canonical campaign architecture and exact Python/JDK versions remain unknown; current machine values are not backfilled.",
-  "current_replay_environment": "results/final-replay/environment.json",
+  "current_replay_environment": "results/retained-replay/environment.json",
   "bridge_environment": "results/bridge-campaign/environment.json",
   "remaining_known_budget": {
     "cpu_seconds_based_only_on_recorded_total": 24803.762814294,
