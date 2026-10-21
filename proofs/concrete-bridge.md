@@ -152,8 +152,8 @@ The executable bridge supports only a bounded observation result:
   write/root stream assumed by the atomic abstract transition checker.
 
 Accordingly, the project does not claim a production deserialization monitor,
-JVM-level initialization proof, constructor attestation, or a new TIFS-level
-enforcement contribution.  Establishing such a result would require an actual
+JVM-level initialization proof, constructor attestation, or general runtime
+enforcement. Establishing general enforcement would require an actual
 enforcement point, a coverage argument for all relevant aliases and writes, a
 semantics for substitutions and failures, and a proved refinement from that
 mechanism to the bounded checker.

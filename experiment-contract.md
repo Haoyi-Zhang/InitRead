@@ -2,9 +2,10 @@
 
 ## Decision and purpose
 
-The project follows the **negative-result / technical-report route**.  The
-preserved finite checker remains a valid bounded result.  The added Java study
-tests whether ordinary passive `ObjectInputStream` observations supply the
+This contract covers the retained finite checker and passive Java observation
+study. Separate receiver and specialization contracts govern the later receiving
+implementations. The passive study tests whether ordinary `ObjectInputStream`
+observations supply the
 complete write, root, callback, and identity evidence assumed by that checker.
 The falsification criterion is simple: any executed Java mechanism that cannot
 be represented without inventing observations must cause the bridge to return
@@ -68,5 +69,4 @@ assumptions.
 
 Not permitted: constructor-history attestation, complete JVM trace coverage,
 production deserialization enforcement, rollback of arbitrary callback side
-effects, universal Java compatibility, or an established novel TIFS research
-contribution.
+effects, or universal Java compatibility.
