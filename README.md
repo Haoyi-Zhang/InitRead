@@ -6,6 +6,19 @@ and a callback-free receiver for a fixed primitive-array protocol. These are
 three distinct execution paths: a final snapshot does not establish the event
 history required by the finite checker.
 
+For the callback-free receiver, distinguish data admission from transcript
+validation. Direct eager checking and an honest certificate admit exactly the
+same safe data through the same private constructor and read-only interface.
+Certificate checking additionally validates the private-plan transcript and
+rejects damaged or absent proofs. It does not establish a stronger data policy.
+In the retained four-family, same-frame comparison, specialization improves on
+the generic certificate checker by median within-fork factors of 2.81--10.36,
+but remains 1.18--3.69 times as costly as direct eager checking. These are
+receiving measurements, not full-pipeline speedups; the separately recorded
+sender preparation and wire volumes are reported in the paper. The artifact
+does not establish a deployed consumer whose need for the transcript offsets
+these costs.
+
 ## Requirements and quick checks
 
 Use Python 3.9 or later. Python checks use the standard library. Native receiver
