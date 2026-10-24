@@ -1,0 +1,3 @@
+policy,cases,final_accept,prefix_accept,final_only,malformed_rejected,alias_checks
+tenant-quota,1644,1236,1236,0,1644,1236
+quorum,1644,1200,768,432,1644,1200

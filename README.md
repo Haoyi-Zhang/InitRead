@@ -21,6 +21,24 @@ these costs.
 
 ## Requirements and quick checks
 
+### Policy-prefix transfer
+
+`java/PolicyBoundaryStudy.java` is a separate post-primitive-decoding control,
+not an extension of the serialized wire schema. It checks the policy-prefix
+criterion for tenant-isolated quota delegation and for an empty-or-two-entry
+quorum policy. With a local JDK 17+, run:
+
+```sh
+python -B reproduce_policy_boundary.py --java-home /local/jdk --out /fresh/policy-boundary
+```
+
+The independent Python fixed-point reference agrees with Java on 1,644 inputs
+per policy. Tenant/quota final and prefix admission both accept 1,236. Quorum
+final admission accepts 1,200 but prefix admission accepts 768; its 432 extra
+refusals demonstrate a policy change, not a stronger final-state guarantee.
+All altered records are rejected and caller-array/root-copy mutation preserves
+accepted data. The original receiver, inputs and timing results are unchanged.
+
 Use Python 3.9 or later. Python checks use the standard library. Native receiver
 checks additionally require a locally installed JDK 17 or later; nothing is
 downloaded by the runners. Full resource-accounted campaigns require POSIX.

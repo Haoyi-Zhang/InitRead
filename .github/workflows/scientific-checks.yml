@@ -104,6 +104,7 @@ jobs:
 
           # The four complete reviewed commands: no --skip-benchmark, no external targets.
           commands = [
+              ('policy-boundary', [sys.executable,'-B','reproduce_policy_boundary.py','--out',str(root/'policy-boundary')]),
               ('portability-tests', [sys.executable,'-B','-m','unittest','discover','-s','portability_tests','-v']),
               ('portable-java', [sys.executable,'-B','reproduce_java_conformance.py','--out',str(root/'portable-java')]),
               ('finite', [sys.executable,'-B','reproduce.py','--out',str(root/'finite'),
